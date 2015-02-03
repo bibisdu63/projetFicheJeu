@@ -1,0 +1,16 @@
+U:\licence\c#\ProjetFicheDeJeuLibrary\Test\bin\Debug\Test.exe.config
+U:\licence\c#\ProjetFicheDeJeuLibrary\Test\bin\Debug\Test.exe
+U:\licence\c#\ProjetFicheDeJeuLibrary\Test\bin\Debug\Test.pdb
+U:\licence\c#\ProjetFicheDeJeuLibrary\Test\bin\Debug\ProjetFicheDeJeuLibrary.dll
+U:\licence\c#\ProjetFicheDeJeuLibrary\Test\bin\Debug\ProjetFicheDeJeuLibrary.pdb
+U:\licence\c#\ProjetFicheDeJeuLibrary\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+U:\licence\c#\ProjetFicheDeJeuLibrary\Test\obj\Debug\Test.exe
+U:\licence\c#\ProjetFicheDeJeuLibrary\Test\obj\Debug\Test.pdb
+C:\Users\bastien\Documents\boulot\licence\c#\ProjetFicheDeJeuLibrary\Test\bin\Debug\Test.exe.config
+C:\Users\bastien\Documents\boulot\licence\c#\ProjetFicheDeJeuLibrary\Test\obj\Debug\Test.exe
+C:\Users\bastien\Documents\boulot\licence\c#\ProjetFicheDeJeuLibrary\Test\obj\Debug\Test.pdb
+C:\Users\bastien\Documents\boulot\licence\c#\ProjetFicheDeJeuLibrary\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\bastien\Documents\boulot\licence\c#\ProjetFicheDeJeuLibrary\Test\bin\Debug\Test.exe
+C:\Users\bastien\Documents\boulot\licence\c#\ProjetFicheDeJeuLibrary\Test\bin\Debug\Test.pdb
+C:\Users\bastien\Documents\boulot\licence\c#\ProjetFicheDeJeuLibrary\Test\bin\Debug\ProjetFicheDeJeuLibrary.dll
+C:\Users\bastien\Documents\boulot\licence\c#\ProjetFicheDeJeuLibrary\Test\bin\Debug\ProjetFicheDeJeuLibrary.pdb

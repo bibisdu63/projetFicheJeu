@@ -1,0 +1,11 @@
+Objectifs : 
+	-sketchs, mode-ups,... (simples)
+	-diagramme de classe 3-tier
+		-Presentation Layer (très très simple pour le moment)
+		-Buisness layer (+++)
+		-Data access layer (+++)
+	- Code (qui compile et qui s'execute !!!!)
+	- commentaire !!
+	- test (fonctionnels simples (appli console) et/ou unitaires)
+	- persistance : XML et/ou BDD (interchangeables)
+	- un document qui expplique tout ça en 10 pages max !

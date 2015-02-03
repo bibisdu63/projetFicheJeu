@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FicheDeJeu xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/ProjetFicheDeJeuLibrary.modele">
+  <categ>0</categ>
+  <dureeJeu>30</dureeJeu>
+  <nom>nom</nom>
+  <nombreDeVue>0</nombreDeVue>
+  <note>2.5</note>
+  <objectif i:nil="true" />
+  <regles>regles</regles>
+  <trancheAge>
+    <ageMax>12</ageMax>
+    <ageMin>8</ageMin>
+  </trancheAge>
+  <variantes xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
+</FicheDeJeu>

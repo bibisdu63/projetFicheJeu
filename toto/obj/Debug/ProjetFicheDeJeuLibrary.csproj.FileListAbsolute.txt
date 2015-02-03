@@ -1,0 +1,5 @@
+C:\Users\bastien\Documents\boulot\licence\c#\ProjetFicheDeJeuLibrary\toto\obj\Debug\ProjetFicheDeJeuLibrary.csprojResolveAssemblyReference.cache
+C:\Users\bastien\Documents\boulot\licence\c#\ProjetFicheDeJeuLibrary\toto\bin\Debug\ProjetFicheDeJeuLibrary.dll
+C:\Users\bastien\Documents\boulot\licence\c#\ProjetFicheDeJeuLibrary\toto\bin\Debug\ProjetFicheDeJeuLibrary.pdb
+C:\Users\bastien\Documents\boulot\licence\c#\ProjetFicheDeJeuLibrary\toto\obj\Debug\ProjetFicheDeJeuLibrary.dll
+C:\Users\bastien\Documents\boulot\licence\c#\ProjetFicheDeJeuLibrary\toto\obj\Debug\ProjetFicheDeJeuLibrary.pdb
