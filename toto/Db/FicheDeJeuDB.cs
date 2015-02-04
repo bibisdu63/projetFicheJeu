@@ -24,23 +24,36 @@ namespace ProjetFicheDeJeuLibrary.Db
         [Column (Name="Duree")]
         public float dureeJeu { get; set; }
 
-       
+        private EntitySet<AgeDb> _FicheAge;
+        [Association(Name = "FK_FicheAge_Fiche", Storage = "_FicheAge", IsForeignKey = true, ThisKey = "id")]
         public Age trancheAge { get; set; }
 
-       
+
+        private EntitySet<FicheObjectifs> _FicheObjectifs;
+        [Association(Name = "FK_FicheObjectifs_Fiche", Storage = "_FicheObjectifs",IsForeignKey=true, ThisKey = "id")]
         public IObjectif objectif { get; set; }
 
-        [Column (Name="Regles")]
+        [Column (Name="Regles", IsPrimaryKey=true)]
         public string regles { get; set; }
 
-        
-        public string[] variantes;
-        
-        public byte categ;
+        [Column (Name="Id")]
+        public int id;
+
+        private EntityRef<CategorieDb> _categorie = new EntityRef<CategorieDb>();
+        [Association(Name = "FK_Fiche_Categorie", IsForeignKey = true, Storage = "_categorie", ThisKey = "categ")]
+        public CategorieDb categoriedb
+        {
+            get { return _categorie.Entity; }
+            set { _categorie.Entity = value; }
+        }
+
+        public uint categ;
 
         public int nombreDeVue { get; set; }
 
         public double note { get; set; }
+
+        public string[] variantes;
 
    
     }
