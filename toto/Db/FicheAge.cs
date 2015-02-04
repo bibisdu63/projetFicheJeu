@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace ProjetFicheDeJeuLibrary.Db
 {
+    /// <summary>
+    /// classe permettant la gestion de la table liant Age et Fiche de jeu en base de donnée
+    /// </summary>
     [Table]
     class FicheAge
     {

@@ -11,13 +11,16 @@ namespace Test.stockage
 {
     public class StockageExterneBDD : IStockage
     {
-
+        /// <summary>
+        /// variable qui stock une connection a une base de donnée
+        /// </summary>
         SqlConnection ConnectionBase;
-        SqlCommand myCommandSelect;
 
+        /// <summary>
+        /// constructeur de la classe qui permet de se connecter à la base de donnée
+        /// </summary>
         public StockageExterneBDD()
         {
-
             using (ConnectionBase = new SqlConnection())
             {
                 try
@@ -30,54 +33,11 @@ namespace Test.stockage
                 {
                     Console.WriteLine(e.Message);
                 }
-               
             }
         }
 
         public FicheDeJeu SelectionnerUneFiche(String nom)
-        {
-            try
-            {
-                String titreJeu;
-                String requete = "SELECT * from Fiche WHERE Titre = 'PRV'";
-               
-                /*string strRequete = "Select f.Titre,f.Regles,f.duree,f.note,f.nbVue,f.NbJoueur,c.categorie,a.AgeMin,a.AgeMax,  o.objectifs" +
-                                    "from Fiche f, Age a, Categorie c, Objectifs o,FicheAge fa, FicheObjectifs fo " +
-                                    "Where c.id=f.Categorie" +
-                                    "AND fa.Fiche=f.Id" +
-                                    "AND a.Id=fa.Age" +
-                                    "AND fo.fiche=f.Id" +
-                                    "AND o.Id=fo.objectif" +
-                                    "AND f.Titre='PRV'";*/
-               // ConnectionBase.Open();
-                myCommandSelect = new SqlCommand(requete, ConnectionBase);
-
-
-                SqlDataReader lectureFiche = myCommandSelect.ExecuteReader();
-                while (lectureFiche.Read())
-                {
-                    //On teste que le résultat n’est pas NULL afin d’éviter un plantage on moment du cast
-                    if (lectureFiche["Titre"] != System.DBNull.Value)
-                    {
-                        //récuppère le nom à l’aide d’un cast
-                        titreJeu = (string)lectureFiche["Titre"];
-                    }
-                    else
-                    {                                                                                                                                         
-                        titreJeu = "erreur";
-                    }
-                    //On affiche le champ dans la console
-                    Console.WriteLine(titreJeu);
-
-                    ConnectionBase.Close();
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("exception :" + e.Message);
-            }
-           
-
+        {   
             return null;
         }
         public void StockerUneFiche(FicheDeJeu fiche)

@@ -44,9 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="controleur\ManageurDeJeu.cs" />
+    <Compile Include="Db\AgeDb.cs" />
+    <Compile Include="Db\CategorieDb.cs" />
+    <Compile Include="Db\FicheAge.cs" />
     <Compile Include="Db\FicheDeJeuDB.cs" />
+    <Compile Include="Db\FicheObjectifs.cs" />
+    <Compile Include="Db\Objectifs.cs" />
     <Compile Include="modele\Age.cs" />
     <Compile Include="modele\FicheDeJeu.cs" />
     <Compile Include="modele\IFicheDeJeu.cs" />

@@ -9,29 +9,25 @@ namespace Test
 {
     class StockageInterneXML : IStockage
     {
-
-
-           /// <summary>
+        /// <summary>
         /// Fonction : stocker une fiche dans un fichier XML 
         /// Le fichier créé porte le nom du jeu 
         /// </summary>
         /// <param name="fiche">La fiche de jeu a stocker</param>
-        
         public void StockerUneFiche(FicheDeJeu fiche)
         {
 
-            FicheDeJeu myObject = new FicheDeJeu();
-            var ds = new DataContractSerializer(typeof(FicheDeJeu));
+            FicheDeJeuXML myObject = new FicheDeJeuXML(fiche);
+            var ds = new DataContractSerializer(typeof(FicheDeJeuXML));
             XmlWriterSettings settings = new XmlWriterSettings() { Indent = false };
             using (XmlWriter w = XmlWriter.Create(fiche.nom +".xml", settings))
-            ds.WriteObject(w, fiche);
+                ds.WriteObject(w, myObject);
            // System.Diagnostics.Process.Start(fiche.nom+".xml"); 
            // Console.ReadLine();
         }
 
         FicheDeJeu IStockage.SelectionnerUneFiche(string nom)
         {
-
             FicheDeJeu maFiche;
             var ds = new DataContractSerializer(typeof(FicheDeJeu));
             using (Stream s = File.OpenRead(nom+".xml"))

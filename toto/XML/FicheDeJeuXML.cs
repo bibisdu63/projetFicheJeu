@@ -7,78 +7,131 @@ using System.Text;
 
 namespace ProjetFicheDeJeuLibrary
 {
-    [DataContract] class FicheDeJeuXML : IFicheDeJeu
+    [DataContract] 
+    public class FicheDeJeuXML : IFicheDeJeu
     {
-       [DataMember]
-       public uint nombreDeNoteurs=0;
+        /// <summary>
+        /// instance de la fiche de jeu référencé
+        /// </summary>
+        [IgnoreDataMember]
+        public FicheDeJeu ficheDeJeu;
 
-         [Flags]
-       public enum categorie : byte
+        /// <summary>
+        /// nombre de noteurs, variable necessaire pour le calcul de la moyenne des notes
+        /// </summary>
+        [DataMember]
+        public uint nombreDeNoteurs
+        {
+            get { return ficheDeJeu.nombreDeNoteurs; }
+            set { ficheDeJeu.nombreDeNoteurs = value; }
+        }
+
+        /// <summary>
+        /// enum de la catégorie d'un jeu
+        /// </summary>
+        [Flags]
+        public enum categorie : uint
         {
             petitJeu = 1,
             grandJeu = 2,
             veillé = 3,
             manuel = 4
         }
+
         /// <summary>
         /// Nom du jeu
         /// </summary>
         [DataMember]
-        public string nom { get; set; }
+        public string nom
+        {
+            get { return ficheDeJeu.nom; }
+            set { ficheDeJeu.nom = nom; }
+        }
 
         /// <summary>
         /// durée du jeu
         /// </summary>
         [DataMember]
-        public float dureeJeu { get; set; }
+        public float dureeJeu
+        {
+            get { return ficheDeJeu.dureeJeu; }
+            set { ficheDeJeu.dureeJeu = dureeJeu; }
+        }
 
         /// <summary>
         /// tranche d'âge du jeu
         /// </summary>
         [DataMember]
-        public Age trancheAge { get; set; }
+        public Age trancheAge
+        {
+            get { return ficheDeJeu.trancheAge; }
+            set { ficheDeJeu.trancheAge = trancheAge; }
+        }
 
         /// <summary>
         /// objectifs du jeu
         /// </summary>
         [DataMember]
-        public IObjectif objectif { get; set; }
+        public IObjectif objectif
+        {
+            get { return ficheDeJeu.objectif; }
+            set { ficheDeJeu.objectif = objectif; }
+        }
 
         /// <summary>
         /// règles du Jeu
         /// </summary>
         [DataMember]
-        public string regles { get; set; }
+        public string regles
+        {
+            get { return ficheDeJeu.regles; }
+            set { ficheDeJeu.regles = regles; }
+        }
 
         /// <summary>
         /// Tableau des variantes du jeu 
         /// </summary>
         [DataMember]
-        public string[] variantes;
-
-        [DataMember] public byte categ;
-
-        [DataMember] public int nombreDeVue { get; set; }
-
-        [DataMember] public double note { get; set; }
-
-        public FicheDeJeuXML(string nom, string regles, Age trancheAge, float dureeJeu)
+        public string[] variantes
         {
-            this.nom = nom;
-            this.regles = regles;
-            this.trancheAge = trancheAge;
-            this.dureeJeu = dureeJeu;
-            this.nombreDeVue = 0;
-            this.note = 2.5;
+            get { return ficheDeJeu.variantes; }
+            set { ficheDeJeu.variantes = variantes; }
         }
-        public FicheDeJeuXML()
+
+        /// <summary>
+        /// categorie d'un jeu
+        /// </summary>
+        [DataMember]
+        public uint categ;
+
+        /// <summary>
+        /// nombre de vue de la fiche de jeu
+        /// </summary>
+        [DataMember]
+        public int nombreDeVue
         {
-            this.nom = "nom";
-            this.regles = "regles";
-            this.trancheAge = null;
-            this.dureeJeu = 30;
-            this.nombreDeVue = 0;
-            this.note = 2.5;
+            get { return ficheDeJeu.nombreDeVue; }
+            set { ficheDeJeu.nombreDeVue = nombreDeVue; }
+        }
+
+        /// <summary>
+        /// note de la fiche de jeu
+        /// </summary>
+        [DataMember]
+        public double note
+        {
+            get { return ficheDeJeu.note; }
+            set { ficheDeJeu.note = note; }
+        }
+
+        /// <summary>
+        /// Constructeur de Fiche de jeu XML (pour la sérialisastion)
+        /// </summary>
+        /// <param name="ficheDeJeu"> une fiche de jeu qui sert de référencement</param>
+        public FicheDeJeuXML(FicheDeJeu ficheDeJeu)
+        {
+            this.ficheDeJeu = ficheDeJeu;
+            this.nom = ficheDeJeu.nom;
         }
 
     }

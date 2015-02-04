@@ -17,6 +17,12 @@ namespace ProjetFicheDeJeuLibrary.modele
         {
 
         }
+
+        /// <summary>
+        /// methode permettant au joueur de noter une fiche
+        /// </summary>
+        /// <param name="note">note attribuer</param>
+        /// <param name="fiche">fiche de jeu pour laquelle une note est émise</param>
         public void noterJeu(uint note,FicheDeJeu fiche)
         {
             fiche.note = ((fiche.note * fiche.nombreDeNoteurs) + note) / (fiche.nombreDeNoteurs+1);

@@ -7,16 +7,10 @@ namespace ProjetFicheDeJeuLibrary.modele
 {
     interface IFicheDeJeu
     {
-        
-        //uint nombreDeNoteurs = 0;
 
-        /* public enum categorie : byte
-        {
-            petitJeu = 1,
-            grandJeu = 2,
-            veillé = 3,
-            manuel = 4
-        }*/
+        uint nombreDeNoteurs { get; set; }
+
+        
         /// <summary>
         /// Nom du jeu
         /// </summary>

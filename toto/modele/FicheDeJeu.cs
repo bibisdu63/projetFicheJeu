@@ -9,10 +9,15 @@ using System.Text;
 namespace ProjetFicheDeJeuLibrary.modele
 
 {
+    /// <summary>
+    /// classe Fiche de Jeu
+    /// </summary>
    public class FicheDeJeu : IFicheDeJeu
     {
-      
-        
+
+        /// <summary>
+        /// Enum pour la gestion des catégorie
+        /// </summary>
        public enum categorie : byte
         {
             petitJeu = 1,
@@ -20,6 +25,7 @@ namespace ProjetFicheDeJeuLibrary.modele
             veillé = 3,
             manuel = 4
         }
+
         /// <summary>
         /// Nom du jeu
         /// </summary>
@@ -50,14 +56,35 @@ namespace ProjetFicheDeJeuLibrary.modele
         /// </summary>
         public string[] variantes;
 
+       /// <summary>
+       /// categorie
+       /// </summary>
         public uint categ = 1;
 
+       /// <summary>
+       /// nombre de Vue 
+       /// </summary>
         public int nombreDeVue { get; set; }
 
+       /// <summary>
+       /// note attribué à la fiche de jeu
+       /// </summary>
         public double note { get; set; }
-        
-        public uint nombreDeNoteurs = 0;
 
+       /// <summary>
+       /// nombre de vue necessaire pour calculer la note 
+       /// </summary>
+        public uint nombreDeNoteurs { get; set; }
+
+       /// <summary>
+       /// constructeur d'une fiche de jeu
+       /// </summary>
+       /// <param name="nom"></param>
+       /// <param name="regles"></param>
+       /// <param name="trancheAge"></param>
+       /// <param name="dureeJeu"></param>
+       /// <param name="categ"></param>
+       /// <param name="objectif"></param>
         public FicheDeJeu(string nom, string regles,
              Age trancheAge, float dureeJeu, uint categ, IObjectif objectif = null)
         {
@@ -70,6 +97,10 @@ namespace ProjetFicheDeJeuLibrary.modele
             this.categ = categ;
             //this.note = 2.5;
         }
+
+       /// <summary>
+       /// constrcteur d'unee fiche de jeu sans paramètre
+       /// </summary>
         public FicheDeJeu()
         {
             this.nom = "nom";

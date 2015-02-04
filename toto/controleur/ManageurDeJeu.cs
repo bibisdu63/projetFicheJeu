@@ -5,18 +5,36 @@ using System.Linq;
 using System.Text;
 
 namespace ProjetFicheDeJeuLibrary.controleur
-{
+{   
+    
     public class ManageurDeJeu
     {
-
+        /// <summary>
+        /// Liste contenant le nom des fiches
+        /// </summary>
         List<string> nomsFiche = new List<string>();
+
+        /// <summary>
+        /// liste de fiche de Jeu
+        /// </summary>
         List<FicheDeJeu> fiches = null;
 
+        /// <summary>
+        /// methode permettant de construire une fiche de jeu
+        /// </summary>
+        /// <param name="nom">nom du jeu</param>
+        /// <param name="regles">règles du jeu</param>
+        /// <param name="trancheAge">tranche d'âge du jeu</param>
+        /// <param name="dureeJeu">durée du jeu</param>
+        /// <param name="categ">catégorie du jeu</param>
+        /// <param name="objectif">objectifs du jeu</param>
+        /// <returns>une fiche de jeu</returns>
         public FicheDeJeu creerJeu(string nom, string regles, Age trancheAge, float dureeJeu, uint categ, IObjectif objectif)
         {
             nomsFiche.Add(nom);
             return new FicheDeJeu(nom, regles, trancheAge, dureeJeu, categ, objectif);
         }
+
         /// <summary>
         /// Cette recherche retournera le tableau des fiches de jeu grâce pas forcèment à du SQL
         /// </summary>

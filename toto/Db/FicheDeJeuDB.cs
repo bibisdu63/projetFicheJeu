@@ -7,7 +7,11 @@ using System.Data.Linq;
 using System.Data.Linq.Mapping;
 
 namespace ProjetFicheDeJeuLibrary.Db
-{   [Table (Name="Fiche")]
+{  
+    /// <summary>
+    /// classe permettant la gestion de la table fiche en base de donnée
+    /// </summary>
+    [Table (Name="Fiche")]
     public class FicheDeJeuDB : IFicheDeJeu
     {
         public enum categorie : byte
@@ -48,6 +52,8 @@ namespace ProjetFicheDeJeuLibrary.Db
         }
 
         public uint categ;
+
+        public uint nombreDeNoteurs { get; set; }
 
         public int nombreDeVue { get; set; }
 
