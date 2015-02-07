@@ -30,7 +30,7 @@ namespace Test
             manageur.creerJeu("nom", "ne pas courir", a1, 30, 1, objectifs);
 
             manageur.creerJeu("nom2", "courir", a1, 35, 1, objectifs);
-            manageur.creerJeu("nom3", "courir", a1, 32, 2, objectifs);
+            manageur.creerJeu("nom3", "fefe", a1, 32, 2, objectifs);
 
             FicheDeJeu[] mesFiches = manageur.chargerToutesLesFiches(i);
             for (int cpt = 0; cpt < mesFiches.Length; cpt++)
@@ -43,6 +43,10 @@ namespace Test
             {
                 Console.WriteLine("fiche " + x + " : " + listeTrieParCateg[x].nom + "categ : " + listeTrieParCateg[x].categ);
             }
+            IStockage i2 = new StockageExterneBDD();
+
+            i2.SelectionnerUneFiche("PRV");
+
 
 
 

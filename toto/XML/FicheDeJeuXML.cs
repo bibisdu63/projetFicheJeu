@@ -45,7 +45,7 @@ namespace ProjetFicheDeJeuLibrary
         public string nom
         {
             get { return ficheDeJeu.nom; }
-            set { ficheDeJeu.nom = nom; }
+            set { ficheDeJeu.nom = value; }
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace ProjetFicheDeJeuLibrary
         public float dureeJeu
         {
             get { return ficheDeJeu.dureeJeu; }
-            set { ficheDeJeu.dureeJeu = dureeJeu; }
+            set { ficheDeJeu.dureeJeu = value; }
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace ProjetFicheDeJeuLibrary
         public Age trancheAge
         {
             get { return ficheDeJeu.trancheAge; }
-            set { ficheDeJeu.trancheAge = trancheAge; }
+            set { ficheDeJeu.trancheAge = value; }
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace ProjetFicheDeJeuLibrary
         public IObjectif objectif
         {
             get { return ficheDeJeu.objectif; }
-            set { ficheDeJeu.objectif = objectif; }
+            set { ficheDeJeu.objectif = value; }
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace ProjetFicheDeJeuLibrary
         public string regles
         {
             get { return ficheDeJeu.regles; }
-            set { ficheDeJeu.regles = regles; }
+            set { ficheDeJeu.regles = value; }
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace ProjetFicheDeJeuLibrary
         public string[] variantes
         {
             get { return ficheDeJeu.variantes; }
-            set { ficheDeJeu.variantes = variantes; }
+            set { ficheDeJeu.variantes = value; }
         }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace ProjetFicheDeJeuLibrary
         public int nombreDeVue
         {
             get { return ficheDeJeu.nombreDeVue; }
-            set { ficheDeJeu.nombreDeVue = nombreDeVue; }
+            set { ficheDeJeu.nombreDeVue = value; }
         }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace ProjetFicheDeJeuLibrary
         public double note
         {
             get { return ficheDeJeu.note; }
-            set { ficheDeJeu.note = note; }
+            set { ficheDeJeu.note = value; }
         }
 
         /// <summary>
@@ -131,9 +131,18 @@ namespace ProjetFicheDeJeuLibrary
         public FicheDeJeuXML(FicheDeJeu ficheDeJeu)
         {
             this.ficheDeJeu = ficheDeJeu;
-            this.nom = ficheDeJeu.nom;
         }
 
+        [OnDeserializing]
+        public void avantSerialisation(StreamingContext sc)
+        {
+            this.ficheDeJeu = new FicheDeJeu();
+        }
+
+        public FicheDeJeuXML()
+        {
+            this.ficheDeJeu = new FicheDeJeu();
+        }
     }
     
 }

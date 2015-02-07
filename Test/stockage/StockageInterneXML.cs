@@ -18,7 +18,7 @@ namespace Test
         {
 
             FicheDeJeuXML myObject = new FicheDeJeuXML(fiche);
-            var ds = new DataContractSerializer(typeof(FicheDeJeuXML));
+            var ds = new DataContractSerializer(typeof(FicheDeJeuXML),new Type[]{typeof(ObjectifTableau)});
             XmlWriterSettings settings = new XmlWriterSettings() { Indent = false };
             using (XmlWriter w = XmlWriter.Create(fiche.nom +".xml", settings))
                 ds.WriteObject(w, myObject);
@@ -28,12 +28,13 @@ namespace Test
 
         FicheDeJeu IStockage.SelectionnerUneFiche(string nom)
         {
-            FicheDeJeu maFiche;
-            var ds = new DataContractSerializer(typeof(FicheDeJeu));
+            FicheDeJeuXML maFiche;// = new FicheDeJeuXML();
+            var ds = new DataContractSerializer(typeof(FicheDeJeuXML), new Type[] { typeof(ObjectifTableau) });
             using (Stream s = File.OpenRead(nom+".xml"))
-            maFiche= (FicheDeJeu)ds.ReadObject(s);                    
-            return maFiche;
+                maFiche = ds.ReadObject(s) as FicheDeJeuXML;                    
+            return maFiche.ficheDeJeu;
         }
+
 
         int IStockage.SupprimerUneFiche(FicheDeJeu nom)
         {

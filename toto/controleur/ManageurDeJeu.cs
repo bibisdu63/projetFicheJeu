@@ -39,7 +39,7 @@ namespace ProjetFicheDeJeuLibrary.controleur
         /// Cette recherche retournera le tableau des fiches de jeu grâce pas forcèment à du SQL
         /// </summary>
         /// <returns></returns>
-        public FicheDeJeu[] recherchePlusJoues()
+        public List<FicheDeJeu> recherchePlusJoues()
         {
             return null;
         }
@@ -74,6 +74,7 @@ namespace ProjetFicheDeJeuLibrary.controleur
         {
             return null;
         }
+
         public List<FicheDeJeu> rechercheParDureeCroissante()
         {
             List<FicheDeJeu> SortedList = fiches.OrderBy(o => o.dureeJeu).ToList();

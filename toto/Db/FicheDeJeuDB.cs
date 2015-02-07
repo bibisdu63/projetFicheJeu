@@ -29,9 +29,9 @@ namespace ProjetFicheDeJeuLibrary.Db
         public float dureeJeu { get; set; }
 
         private EntitySet<AgeDb> _FicheAge;
-        [Association(Name = "FK_FicheAge_Fiche", Storage = "_FicheAge", IsForeignKey = true, ThisKey = "id")]
+        [Association(Name = "FK_FicheAge_Fiche", Storage = "_FicheAge", IsForeignKey = true,OtherKey="id_Fiche" ,ThisKey = "id")]
         public Age trancheAge { get; set; }
-
+        //émentaires : Le nombre de colonnes ThisKey ne correspond pas au nombre de colonnes OtherKey pour la propriété d'association 'trancheAge' du type 'FicheDeJeuDB'.
 
         private EntitySet<FicheObjectifs> _FicheObjectifs;
         [Association(Name = "FK_FicheObjectifs_Fiche", Storage = "_FicheObjectifs",IsForeignKey=true, ThisKey = "id")]

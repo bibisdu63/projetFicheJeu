@@ -1,11 +1,14 @@
-﻿using ProjetFicheDeJeuLibrary.modele;
+﻿using ProjetFicheDeJeuLibrary;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Data.Linq;
 using System.Linq;
 using System.Text;
 using System.Data.Common;
 using System.Threading.Tasks;
+using ProjetFicheDeJeuLibrary.Db;
+using ProjetFicheDeJeuLibrary.modele;
 
 namespace Test.stockage
 {
@@ -14,30 +17,23 @@ namespace Test.stockage
         /// <summary>
         /// variable qui stock une connection a une base de donnée
         /// </summary>
-        SqlConnection ConnectionBase;
-
+        DataContext contextDonnee;
         /// <summary>
         /// constructeur de la classe qui permet de se connecter à la base de donnée
         /// </summary>
         public StockageExterneBDD()
         {
-            using (ConnectionBase = new SqlConnection())
-            {
-                try
-                {
-                    ConnectionBase.ConnectionString = @"Data Source=(localdb)\v11.0;Integrated Security =SSPI; Initial Catalog=bisson";
-                    ConnectionBase.Open();
-                    Console.WriteLine("connexion OK");
-                } 
-                catch (SqlException e)
-                {
-                    Console.WriteLine(e.Message);
-                }
-            }
+            contextDonnee = new DataContext("Data Source=(localdb)\v11.0;Initial Catalog=bisson;Integrated Security=True;Pooling=False");
         }
 
         public FicheDeJeu SelectionnerUneFiche(String nom)
-        {   
+        {
+            var query = //from Fiche in contextDonnee.GetTable<FicheDeJeuDB>() select Fiche;
+                contextDonnee.GetTable<FicheDeJeuDB>();
+            foreach(var fiche in query)
+            { Console.WriteLine(fiche.nom); }
+
+
             return null;
         }
         public void StockerUneFiche(FicheDeJeu fiche)
