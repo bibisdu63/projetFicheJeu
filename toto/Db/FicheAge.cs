@@ -12,16 +12,24 @@ namespace ProjetFicheDeJeuLibrary.Db
     /// classe permettant la gestion de la table liant Age et Fiche de jeu en base de donnée
     /// </summary>
     [Table]
-    class FicheAge
+    public class FicheAge
     {
-        [Column(Name = "Fiche")]
-        public string id_Fiche;
 
-        [Column(Name = "Age")]
-        public string id_age;
 
+
+        [Column(Name = "Fiche", IsPrimaryKey=true)] public string id_Fiche;
+        private EntityRef<FicheDeJeuDB> _fiche = new EntityRef<FicheDeJeuDB>();
+        [Association(Name = "FK_FicheAge_Fiche", IsForeignKey = true, Storage = "_fiche",OtherKey="id", ThisKey = "id_Fiche")]
+        public FicheDeJeuDB fiche
+        {
+            get { return _fiche.Entity; }
+            set { _fiche.Entity = value;}
+        }
+
+
+        [Column(Name = "Age",IsPrimaryKey=true)] public string id_age;
         private EntityRef<AgeDb> _ages = new EntityRef<AgeDb>();
-        [Association(Name = "FK_FicheAge_Age", IsForeignKey = true, Storage = "_ages", ThisKey = "id_age")]
+        [Association(Name = "FK_FicheAge_Age", IsForeignKey = true, Storage = "_ages",OtherKey="id", ThisKey = "id_age")]
         public AgeDb ages
         {
             get { return _ages.Entity; }

@@ -48,6 +48,7 @@
     <Compile Include="Db\AgeDb.cs" />
     <Compile Include="Db\CategorieDb.cs" />
     <Compile Include="Db\FicheAge.cs" />
+    <Compile Include="Db\FicheCatalogue.cs" />
     <Compile Include="Db\FicheDeJeuDB.cs" />
     <Compile Include="Db\FicheObjectifs.cs" />
     <Compile Include="Db\Objectifs.cs" />

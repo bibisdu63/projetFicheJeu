@@ -133,12 +133,19 @@ namespace ProjetFicheDeJeuLibrary
             this.ficheDeJeu = ficheDeJeu;
         }
 
+        /// <summary>
+        /// methode permettant de créer une fiche de jeu pour pouvoir la remplir lors de la déserialisation
+        /// </summary>
+        /// <param name="sc"></param>
         [OnDeserializing]
         public void avantSerialisation(StreamingContext sc)
         {
             this.ficheDeJeu = new FicheDeJeu();
         }
 
+        /// <summary>
+        /// constructeur de la classe
+        /// </summary>
         public FicheDeJeuXML()
         {
             this.ficheDeJeu = new FicheDeJeu();

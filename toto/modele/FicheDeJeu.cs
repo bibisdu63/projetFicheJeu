@@ -59,7 +59,7 @@ namespace ProjetFicheDeJeuLibrary.modele
        /// <summary>
        /// categorie
        /// </summary>
-        public uint categ = 1;
+        public uint categ = 1;       
 
        /// <summary>
        /// nombre de Vue 
@@ -111,5 +111,16 @@ namespace ProjetFicheDeJeuLibrary.modele
 
         }
 
+        
+        public void ToString()
+        {
+            Console.WriteLine("------Fiche de Jeu-----------");
+            Console.WriteLine(" nom : " + this.nom);
+            Console.WriteLine("regle : " + this.regles);
+            Console.WriteLine("Age : " + this.trancheAge.ToString());
+            Console.WriteLine("Duree : " + this.dureeJeu);
+            Console.WriteLine("Categorie : " + this.categ);
+            Console.WriteLine("Objectifs : " + this.objectif.ToString());
+        }
     }
 }

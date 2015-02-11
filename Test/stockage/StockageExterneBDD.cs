@@ -1,14 +1,6 @@
-﻿using ProjetFicheDeJeuLibrary;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Data.Linq;
-using System.Linq;
-using System.Text;
-using System.Data.Common;
-using System.Threading.Tasks;
-using ProjetFicheDeJeuLibrary.Db;
+﻿using ProjetFicheDeJeuLibrary.Db;
 using ProjetFicheDeJeuLibrary.modele;
+using System;
 
 namespace Test.stockage
 {
@@ -17,22 +9,29 @@ namespace Test.stockage
         /// <summary>
         /// variable qui stock une connection a une base de donnée
         /// </summary>
-        DataContext contextDonnee;
+        FicheCatalogue catalog;
+
         /// <summary>
         /// constructeur de la classe qui permet de se connecter à la base de donnée
         /// </summary>
         public StockageExterneBDD()
         {
-            contextDonnee = new DataContext("Data Source=(localdb)\v11.0;Initial Catalog=bisson;Integrated Security=True;Pooling=False");
+            catalog = new FicheCatalogue();
         }
 
         public FicheDeJeu SelectionnerUneFiche(String nom)
         {
+
+            foreach (FicheDeJeuDB fiche in catalog.Fiche)
+            {
+                Console.WriteLine(fiche.nom);
+            }
+            /*
             var query = //from Fiche in contextDonnee.GetTable<FicheDeJeuDB>() select Fiche;
                 contextDonnee.GetTable<FicheDeJeuDB>();
             foreach(var fiche in query)
             { Console.WriteLine(fiche.nom); }
-
+            */
 
             return null;
         }

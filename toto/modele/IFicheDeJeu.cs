@@ -8,9 +8,6 @@ namespace ProjetFicheDeJeuLibrary.modele
     interface IFicheDeJeu
     {
 
-        uint nombreDeNoteurs { get; set; }
-
-        
         /// <summary>
         /// Nom du jeu
         /// </summary>
@@ -43,8 +40,19 @@ namespace ProjetFicheDeJeuLibrary.modele
 
         // uint categ;
 
+        /// <summary>
+        /// nombre de personne ayant voté
+        /// </summary>
+         uint nombreDeNoteurs { get; set; }
+
+        /// <summary>
+        /// nombre de vue sur cette fiche
+        /// </summary>
          int nombreDeVue { get; set; }
 
+        /// <summary>
+        /// note du jeu
+        /// </summary>
          double note { get; set; }
 
     }

@@ -11,9 +11,9 @@ namespace ProjetFicheDeJeuLibrary.Db
     /// classe permettant la gestion de la table objectifs en base de donnée
     /// </summary>
     [Table]
-    class Objectifs
+    public class Objectifs
     {
-        [Column (Name="Id")]
+        [Column (Name="Id", IsPrimaryKey=true)]
         public int id;
 
         [Column(Name="Objectifs")]

@@ -12,7 +12,7 @@ namespace ProjetFicheDeJeuLibrary.Db
     /// classe permettant la gestion de la table fiche en base de donnée
     /// </summary>
     [Table (Name="Fiche")]
-    public class FicheDeJeuDB : IFicheDeJeu
+    public class FicheDeJeuDB
     {
         public enum categorie : byte
         {
@@ -28,30 +28,38 @@ namespace ProjetFicheDeJeuLibrary.Db
         [Column (Name="Duree")]
         public float dureeJeu { get; set; }
 
-        private EntitySet<AgeDb> _FicheAge;
+        private EntitySet<FicheAge> _FicheAge = new EntitySet<FicheAge>();
         [Association(Name = "FK_FicheAge_Fiche", Storage = "_FicheAge", IsForeignKey = true,OtherKey="id_Fiche" ,ThisKey = "id")]
-        public Age trancheAge { get; set; }
-        //émentaires : Le nombre de colonnes ThisKey ne correspond pas au nombre de colonnes OtherKey pour la propriété d'association 'trancheAge' du type 'FicheDeJeuDB'.
+        private ICollection <FicheAge> trancheAge 
+        {
+            get { return _FicheAge; }
+            set { _FicheAge.Assign(value); }
+        }
 
-        private EntitySet<FicheObjectifs> _FicheObjectifs;
-        [Association(Name = "FK_FicheObjectifs_Fiche", Storage = "_FicheObjectifs",IsForeignKey=true, ThisKey = "id")]
-        public IObjectif objectif { get; set; }
+        private EntitySet<FicheObjectifs> _FicheObjectifs = new EntitySet<FicheObjectifs>();
+        [Association(Name = "FK_FicheObjectifs_Fiche", Storage = "_FicheObjectifs",IsForeignKey=true,OtherKey="id_Fiche", ThisKey = "id")]
+        public ICollection<FicheObjectifs> objectif 
+        {
+            get { return _FicheObjectifs; }
+            set { _FicheObjectifs.Assign(value);  }
+        }
+
+
 
         [Column (Name="Regles", IsPrimaryKey=true)]
         public string regles { get; set; }
 
-        [Column (Name="Id")]
+        [Column (Name="Id",IsPrimaryKey=true)]
         public int id;
 
         private EntityRef<CategorieDb> _categorie = new EntityRef<CategorieDb>();
-        [Association(Name = "FK_Fiche_Categorie", IsForeignKey = true, Storage = "_categorie", ThisKey = "categ")]
+        [Association(Name = "FK_Fiche_Categorie", IsForeignKey = true, Storage = "_categorie", ThisKey = "id")]
         public CategorieDb categoriedb
         {
             get { return _categorie.Entity; }
             set { _categorie.Entity = value; }
         }
-
-        public uint categ;
+        [Column (Name = "Categorie")] public uint? categ;
 
         public uint nombreDeNoteurs { get; set; }
 

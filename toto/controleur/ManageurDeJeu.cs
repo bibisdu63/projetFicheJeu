@@ -75,6 +75,10 @@ namespace ProjetFicheDeJeuLibrary.controleur
             return null;
         }
 
+        /// <summary>
+        /// methode permettant de faire une recherche par rapport à la durée
+        /// </summary>
+        /// <returns></returns>
         public List<FicheDeJeu> rechercheParDureeCroissante()
         {
             List<FicheDeJeu> SortedList = fiches.OrderBy(o => o.dureeJeu).ToList();
@@ -82,7 +86,11 @@ namespace ProjetFicheDeJeuLibrary.controleur
             return SortedList;
         }
 
-        // chargerTouteLesFiches présentes en xml
+        /// <summary>
+        /// methode permettant de charger toutes les fiches présentent dans la table de nom de fiche de jeu
+        /// </summary>
+        /// <param name="stockage"></param>
+        /// <returns></returns>
         public FicheDeJeu[] chargerToutesLesFiches(IStockage stockage)
         {
             FicheDeJeu[] fichesDeJeu = new FicheDeJeu[nomsFiche.Count];

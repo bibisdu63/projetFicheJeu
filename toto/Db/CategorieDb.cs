@@ -13,7 +13,7 @@ namespace ProjetFicheDeJeuLibrary.Db
     [Table]
     public class CategorieDb
     {
-        [Column(Name="Id")]
+        [Column(Name="Id",IsPrimaryKey= true)]
         public int id;
 
         [Column(Name="categorie")]

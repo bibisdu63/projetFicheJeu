@@ -11,9 +11,9 @@ namespace ProjetFicheDeJeuLibrary.Db
     /// classe permettant la gestion de la table Age en base de donnée
     /// </summary>
     [Table]
-    class AgeDb
+    public class AgeDb
     {
-        [Column (Name="Id")]
+        [Column (Name="Id",IsPrimaryKey=true)]
         public int id;
 
         [Column (Name="AgeMin")]
